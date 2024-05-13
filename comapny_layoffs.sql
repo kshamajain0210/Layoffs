@@ -143,4 +143,20 @@ SELECT location, SUM(total_laid_off) FROM layoffs_staging2 GROUP BY location ORD
 -- Total in the past 4 years
 SELECT YEAR(date), SUM(total_laid_off) FROM layoffs_staging2 GROUP BY YEAR(date) ORDER BY 1 ASC;
 
+ -- Rolling Total of Layoffs Per Month
+
+WITH DATE_CTE AS 
+(
+SELECT SUBSTRING(date,1,7) as dates, SUM(total_laid_off) AS total_laid_off
+FROM layoffs_staging2
+GROUP BY dates
+ORDER BY dates ASC
+)
+SELECT dates, SUM(total_laid_off) OVER (ORDER BY dates ASC) as rolling_total_layoffs
+FROM DATE_CTE
+ORDER BY dates ASC;
+
+
+
+
 
