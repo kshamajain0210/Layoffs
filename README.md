@@ -1,3 +1,3 @@
 # SQL-Project
 
-This project contains to quries to clean and calculate the total number of layoffs in companies around the world. please refer to the dataset for more info.
+This SQL project, inspired by Alex the Analyst, involves cleaning and analyzing global layoffs data. Using multiple SQL queries, the project calculates the total number of layoffs in companies worldwide, providing valuable insights into the global employment landscape.
